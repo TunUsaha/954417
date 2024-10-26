@@ -24,9 +24,16 @@ if (!isset($_SESSION['id'])) {
                 <li class="nav-item">
                         <a class="nav-link" href="display_repair_request.php">การแจ้งซ่อม</a>
                     </li>
-                <li class="nav-item">
-                        <a class="nav-link" href="create_repair_request.php">แจ้งซ่อม</a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="view_repair_status.php">ตรวจสอบสถานะการแจ้งซ่อม</a> 
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="topic_repair.php">Complete</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="equipment.php">สินค้าคงเบิก</a> 
+                    </li>
+
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>
                     </li>

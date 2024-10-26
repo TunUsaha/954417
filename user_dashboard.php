@@ -5,7 +5,6 @@ if (!isset($_SESSION['id'])) {
     exit();
 }
 
-
 include 'db_connect.php';
 ?>
 
@@ -29,9 +28,11 @@ include 'db_connect.php';
                             <a class="nav-link" href="technician_dashboard.php">Technician Dashboard</a>
                         </li>
                     <?php endif; ?>
-
                     <li class="nav-item">
                         <a class="nav-link" href="create_repair_request.php">แจ้งซ่อม</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tracking_status.php">ติดตามสถานะ</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout.php">Logout</a>
@@ -46,7 +47,6 @@ include 'db_connect.php';
         <p>This is the user dashboard where you can submit repair requests.</p>
     </div>
 
-  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

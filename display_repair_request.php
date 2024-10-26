@@ -1,17 +1,40 @@
 <?php
 session_start();
-include 'db_connect.php'; // เชื่อมต่อกับฐานข้อมูล
+include 'db_connect.php';
 
 if (!isset($_SESSION['id'])) {
     header("Location: login.php");
     exit();
 }
 
-// เตรียมคำสั่ง SQL เพื่อดึงข้อมูลทั้งหมดจาก repair_requests
-$query = "SELECT * FROM repairrequest";
+
+if (isset($_POST['accept_job'])) {
+    $repairRequestId = $_POST['repair_request_id'];
+    $technicianId = $_SESSION['technician_id']; 
+
+
+    $insertAssignment = "INSERT INTO assignment (AcceptDate, Status, Technician_id, RepairRequest_id) VALUES (NOW(), 'กำลังดำเนินการ', ?, ?)";
+    $stmt = $conn->prepare($insertAssignment);
+    $stmt->bind_param("ii", $technicianId, $repairRequestId);
+    $stmt->execute();
+    
+
+
+    $updateStatus = "UPDATE repairrequest SET Status = 'กำลังดำเนินการ' WHERE id = ?";
+    $stmt = $conn->prepare($updateStatus);
+    $stmt->bind_param("i", $repairRequestId);
+    $stmt->execute();
+
+    header("Location: display_repair_request.php");
+    exit();
+}
+
+
+$query = "SELECT * FROM repairrequest WHERE Status != 'กำลังดำเนินการ' AND Status != 'เสร็จสิ้น'";
 $stmt = $conn->prepare($query);
 $stmt->execute();
 $result = $stmt->get_result();
+
 ?>
 
 <!DOCTYPE html>
@@ -31,10 +54,11 @@ $result = $stmt->get_result();
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>หัวเรื่อง</th>
                         <th>คำอธิบาย</th>
-                        <th>ผู้ใช้</th>
                         <th>สถานะ</th>
                         <th>วันที่แจ้งซ่อม</th>
+                        <th>User</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -43,13 +67,23 @@ $result = $stmt->get_result();
                             <td><?php echo $repair_request['id']; ?></td>
                             <td><?php echo $repair_request['topic']; ?></td>
                             <td><?php echo $repair_request['Description']; ?></td>
+                            <td><?php echo $repair_request['Status']; ?></td>
+                            <td><?php echo $repair_request['RequestedDate']; ?></td>
                             <td>
                                 <a href="user_info.php?user_id=<?php echo $repair_request['User_id']; ?>">
                                     <?php echo $repair_request['User_id']; ?>
                                 </a>
                             </td>
-                            <td><?php echo $repair_request['Status']; ?></td>
-                            <td><?php echo $repair_request['RequestedDate']; ?></td>
+                            <td>
+                                <?php if ($repair_request['Status'] !== 'กำลังดำเนินการ'): ?>
+                                    <form method="post">
+                                        <input type="hidden" name="repair_request_id" value="<?php echo $repair_request['id']; ?>">
+                                        <button type="submit" name="accept_job" class="btn btn-success">รับงาน</button>
+                                    </form>
+                                <?php else: ?>
+                                    <span class="text-muted">กำลังดำเนินการ</span>
+                                <?php endif; ?>
+                            </td>
                         </tr>
                     <?php endwhile; ?>
                 </tbody>
@@ -58,7 +92,8 @@ $result = $stmt->get_result();
             <p>ไม่มีข้อมูลการแจ้งซ่อมที่ต้องการ</p>
         <?php endif; ?>
 
-        <a href="user_dashboard.php" class="btn btn-primary">กลับสู่แดชบอร์ด</a>
+        <a href="technician_dashboard.php" class="btn btn-primary">กลับสู่แดชบอร์ด</a>
+        <a href="view_repair_status.php" class="btn btn-secondary">ไปยังหน้าดำเนินการ</a>
     </div>
 </body>
 </html>
