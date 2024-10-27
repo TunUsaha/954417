@@ -1,38 +1,28 @@
 <?php
-
 include "db_connect.php";
 session_start();
-
-
 $user_id = $_SESSION['id'];
 $status = "แจ้งซ่อม";
+$statusMessage = ""; // Initialize the status message variable
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $topic = $_POST['topic'];
     $description = $_POST['description'];
 
-
     $sql = "INSERT INTO repairrequest (topic, Description, User_id, Status, RequestedDate) VALUES (?, ?, ?, ?, NOW())";
-
 
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssis", $topic, $description, $user_id, $status);
 
     if ($stmt->execute()) {
-        echo "แจ้งซ่อมเรียบร้อยแล้ว";
+        $statusMessage = "<div class='status-message'>แจ้งซ่อมเรียบร้อยแล้ว</div>";
     } else {
-        echo "เกิดข้อผิดพลาด: " . $stmt->error;
+        $statusMessage = "<div class='status-message'>เกิดข้อผิดพลาด: " . htmlspecialchars($stmt->error) . "</div>";
     }
-
 
     $stmt->close();
 }
-
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="th">
@@ -82,6 +72,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </div>
     </nav>
 
+    <!-- Status Message Display -->
+    <div class="container">
+        <?php if ($statusMessage): ?>
+            <?php echo $statusMessage; ?>
+        <?php endif; ?>
+    </div>
+
     <div class="container crrq_container">
         <h1 class="crrq_heading">แจ้งซ่อม</h1>
         <form method="POST" onsubmit="validateForm(event)">
@@ -99,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <label class="form-check-label crrq_form-check-label" for="confirmationCheckbox">ฉันยืนยันว่าข้อมูลที่ให้ไว้ถูกต้อง</label>
             </div>
 
-            <button type="submit" class="btn btn-primary crrq_btn-primary ">ส่งแจ้งซ่อม</button>
+            <button type="submit" class="btn btn-primary crrq_btn-primary">ส่งแจ้งซ่อม</button>
         </form>
     </div>
     <a href="user_dashboard.php" class="btn btn-secondary crrq_btn-secondary mt-3">กลับ</a>
