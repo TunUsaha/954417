@@ -930,3 +930,47 @@ a:hover {
     color: #999;
     margin-top: 15px;
 }
+
+/* Container for Repair Details */
+.repair-details {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background for contrast */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.repair-details_heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* List */
+.repair-details_list {
+    list-style: none; /* Remove default list styling */
+    padding: 0;
+}
+
+.repair-details_list li {
+    padding: 8px 0;
+    font-size: 16px;
+    line-height: 1.5;
+    border-bottom: 1px solid #e9ecef; /* Light border between items */
+}
+
+.repair-details_list li:last-child {
+    border-bottom: none; /* Remove border from the last item */
+}
+
+/* No Data Text */
+.repair-details_no-data {
+    font-size: 16px;
+    text-align: center;
+    color: #999;
+    margin-top: 15px;
+}

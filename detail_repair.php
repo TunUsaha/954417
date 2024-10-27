@@ -52,24 +52,25 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="styles.css"> <!-- เชื่อมต่อกับ CSS ที่คุณต้องการ -->
 </head>
 <body>
-    <div class="container">
-        <?php if ($result->num_rows > 0): ?>
-            <h2>รายละเอียดการซ่อมแซม</h2>
-            <?php while ($row = $result->fetch_assoc()): ?>
-                <ul>
-                    <li><strong>ชื่อการซ่อมแซม:</strong> <?php echo htmlspecialchars($row['NameEquipmentRequest']); ?></li>
-                    <li><strong>รายละเอียด:</strong> <?php echo htmlspecialchars($row['Description']); ?></li>
-                    <li><strong>วันที่ร้องขอ:</strong> <?php echo htmlspecialchars($row['RequestedDate']); ?></li>
-                    <li><strong>ชื่อผู้ใช้ที่ร้องขอการซ่อมแซม:</strong> <?php echo htmlspecialchars($row['UserName']); ?></li>
-                    <li><strong>วันที่ซ่อมเสร็จสิ้น:</strong> <?php echo htmlspecialchars($row['ScheduledDate']); ?></li>
-                    <li><strong>สถานะ:</strong> <?php echo htmlspecialchars($row['Status']); ?></li>
-                    <li><strong>รายชื่ออุปกรณ์ที่ใช้:</strong> <?php echo htmlspecialchars($row['EquipmentDetails']); ?></li>
-                </ul>
-            <?php endwhile; ?>
-        <?php else: ?>
-            <p>ไม่พบรายละเอียดสำหรับ ID นี้</p>
-        <?php endif; ?>
-    </div>
+<div class="container repair-details mt-5">
+    <?php if ($result->num_rows > 0): ?>
+        <h2 class="repair-details_heading">รายละเอียดการซ่อมแซม</h2>
+        <?php while ($row = $result->fetch_assoc()): ?>
+            <ul class="repair-details_list">
+                <li><strong>ชื่อการซ่อมแซม:</strong> <?php echo htmlspecialchars($row['NameEquipmentRequest']); ?></li>
+                <li><strong>รายละเอียด:</strong> <?php echo htmlspecialchars($row['Description']); ?></li>
+                <li><strong>วันที่ร้องขอ:</strong> <?php echo htmlspecialchars($row['RequestedDate']); ?></li>
+                <li><strong>ชื่อผู้ใช้ที่ร้องขอการซ่อมแซม:</strong> <?php echo htmlspecialchars($row['UserName']); ?></li>
+                <li><strong>วันที่ซ่อมเสร็จสิ้น:</strong> <?php echo htmlspecialchars($row['ScheduledDate']); ?></li>
+                <li><strong>สถานะ:</strong> <?php echo htmlspecialchars($row['Status']); ?></li>
+                <li><strong>รายชื่ออุปกรณ์ที่ใช้:</strong> <?php echo htmlspecialchars($row['EquipmentDetails']); ?></li>
+            </ul>
+        <?php endwhile; ?>
+    <?php else: ?>
+        <p class="repair-details_no-data">ไม่พบรายละเอียดสำหรับ ID นี้</p>
+    <?php endif; ?>
+</div>
+
 
     <?php $conn->close(); ?>
 </body>
