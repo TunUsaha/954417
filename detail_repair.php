@@ -70,8 +70,9 @@ $result = $stmt->get_result();
         <p class="repair-details_no-data">ไม่พบรายละเอียดสำหรับ ID นี้</p>
     <?php endif; ?>
 </div>
-
-
+<div class="container-button">
+<button onclick="window.history.back();" class="btn btn-primary_dprq ">Back</button>
+</div>
     <?php $conn->close(); ?>
 </body>
 </html>
