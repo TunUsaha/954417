@@ -706,3 +706,86 @@ p {
     text-align: center;
     margin-top: 20px;
 }
+
+/* Container */
+.crrq_container {
+    margin-top: 2rem;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.crrq_heading {
+    color: #8D4FD7;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    font-size: 1.75rem;
+}
+
+/* Form Labels */
+.crrq_form-label {
+    color: #5c2c8a;
+    font-weight: bold;
+}
+
+/* Form Input Fields */
+.crrq_form-control {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    padding: 0.75rem;
+    width: 100%;
+}
+
+.crrq_form-control:focus {
+    border-color: #8D4FD7;
+    box-shadow: 0 0 5px rgba(141, 79, 215, 0.3);
+}
+
+/* Checkbox */
+.crrq_form-check-input {
+    accent-color: #8D4FD7;
+}
+
+.crrq_form-check-label {
+    color: #5c2c8a;
+    font-weight: 500;
+}
+
+/* Buttons */
+/* Primary Button */
+.crrq_btn-primary {
+    background-color: #8D4FD7;
+    border-color: #8D4FD7;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+    padding: 10px 20px; /* Adjust padding to match secondary button */
+}
+
+/* Primary Button Hover Effect */
+.crrq_btn-primary:hover {
+    background-color: #5c2c8a;
+    border-color: #5c2c8a;
+}
+
+/* Secondary Button */
+.crrq_btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    font-weight: 600;
+    padding: 10px 20px;
+    margin-left: 15.5%; /* Match primary button padding */
+}
+
+/* Secondary Button Hover Effect */
+.crrq_btn-secondary:hover {
+    background-color: #565e64;
+    border-color: #565e64;
+}
+
+/* Back Button */
+.crrq_btn-secondary.mt-3 {
+    margin-top: 20px;
+}
