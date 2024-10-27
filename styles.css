@@ -698,15 +698,6 @@ a:hover {
     color: #5c2c8a;
 }
 
-/* Empty Data Message */
-p {
-    color: #888;
-    font-style: italic;
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px;
-}
-
 /* Container */
 .crrq_container {
     margin-top: 2rem;
@@ -788,4 +779,78 @@ p {
 /* Back Button */
 .crrq_btn-secondary.mt-3 {
     margin-top: 20px;
+}
+
+/* Form Container */
+.eqreq_form {
+    max-width: 600px;
+    margin: 20px auto;
+    font-size: 16px;
+}
+
+/* Headings */
+.eqreq_heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Labels */
+.eqreq_label {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Input Fields */
+.eqreq_input,
+.eqreq_textarea,
+.eqreq_select,
+.eqreq_input-number {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Buttons */
+.eqreq_btn-add {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.eqreq_btn-add:hover {
+    background-color: #8D4FD7;
+    border-color: #8D4FD7;
+    color: white;
+}
+
+.eqreq_btn-submit {
+    background-color: #8D4FD7;
+    border-color: #8D4FD7;
+    font-weight: 600;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+}
+
+.eqreq_btn-submit:hover {
+    background-color: #5c2c8a;
+    border-color: #5c2c8a;
+}
+
+/* Equipment Item Container */
+.eqreq_equipment-container {
+    margin-top: 15px;
+}
+
+.equipment-item {
+    margin-bottom: 20px;
 }

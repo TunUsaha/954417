@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $equipmentIds = $_POST['Equipment_id'];
     $quantitiesUsed = $_POST['QuantityUsed'];
 
- 
+
     foreach ($equipmentIds as $index => $equipmentId) {
         $quantityUsed = $quantitiesUsed[$index];
 
@@ -19,11 +19,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $checkQuantityStmt->bind_param("i", $equipmentId);
         $checkQuantityStmt->execute();
         $result = $checkQuantityStmt->get_result();
-        
+
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
             if ($row['QuantityAvailable'] < $quantityUsed) {
-               
+
                 echo "<script>alert('จำนวนอุปกรณ์ที่เบิกเกินจำนวนที่มีอยู่: $quantityUsed / " . $row['QuantityAvailable'] . "');</script>";
                 exit();
             }
@@ -38,12 +38,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt = $conn->prepare($insertQuery);
     $stmt->bind_param("ssi", $nameEquipmentRequest, $description, $assignmentId);
     $stmt->execute();
-    
+
 
     if ($stmt->affected_rows > 0) {
         $equipmentRequestId = $stmt->insert_id;
 
-   
+
         foreach ($equipmentIds as $index => $equipmentId) {
             $quantityUsed = $quantitiesUsed[$index];
 
@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $issueStmt->bind_param("iii", $equipmentRequestId, $equipmentId, $quantityUsed);
             $issueStmt->execute();
 
-          
+
             $updateEquipmentQuery = "UPDATE equipment SET QuantityAvailable = QuantityAvailable - ? WHERE id = ?";
             $updateEquipmentStmt = $conn->prepare($updateEquipmentQuery);
             $updateEquipmentStmt->bind_param("ii", $quantityUsed, $equipmentId);
@@ -64,9 +64,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $updateAssignmentStatusQuery = "UPDATE assignment SET Status = 'เสร็จสิ้น', ScheduledDate = NOW() WHERE id = ?";
         $updateAssignmentStatusStmt = $conn->prepare($updateAssignmentStatusQuery);
-        $updateAssignmentStatusStmt->bind_param("i", $assignmentId); 
+        $updateAssignmentStatusStmt->bind_param("i", $assignmentId);
         $updateAssignmentStatusStmt->execute();
-        
+
 
 
 
@@ -78,9 +78,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($result->num_rows > 0) {
             $row = $result->fetch_assoc();
-            $repairRequestId = $row['RepairRequest_id']; 
+            $repairRequestId = $row['RepairRequest_id'];
 
-          
+
             $updateRepairRequestStatusQuery = "UPDATE repairrequest SET Status = 'เสร็จสิ้น' WHERE id = ?";
             $updateRepairRequestStatusStmt = $conn->prepare($updateRepairRequestStatusQuery);
             $updateRepairRequestStatusStmt->bind_param("i", $repairRequestId);
@@ -90,25 +90,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit();
         }
 
-        header("Location: view_repair_status.php"); 
+        header("Location: view_repair_status.php");
         exit();
     } else {
 
-        header("Location: equipmennt_request_form.php"); 
+        header("Location: equipmennt_request_form.php");
         exit();
     }
 }
 
 // Fetch equipment data
-$equipmentQuery = "SELECT * FROM equipment WHERE QuantityAvailable > 0"; 
+$equipmentQuery = "SELECT * FROM equipment WHERE QuantityAvailable > 0";
 $equipmentResult = $conn->query($equipmentQuery);
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Equipment Request</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="styles.css">
     <script>
         function addEquipmentField() {
             const equipmentContainer = document.getElementById('equipment-container');
@@ -118,7 +119,7 @@ $equipmentResult = $conn->query($equipmentQuery);
                 <label>อุปกรณ์ที่ต้องการเบิก:</label>
                 <select name="Equipment_id[]" required>
                     <?php
-                    
+
                     $equipmentResult->data_seek(0);
                     while ($equipment = $equipmentResult->fetch_assoc()): ?>
                         <option value="<?php echo $equipment['id']; ?>"><?php echo $equipment['Name']; ?> (คงเหลือ: <?php echo $equipment['QuantityAvailable']; ?>)</option>
@@ -139,34 +140,36 @@ $equipmentResult = $conn->query($equipmentQuery);
         }
     </script>
 </head>
+
 <body>
-    <h2>แบบฟอร์มเบิกอุปกรณ์</h2>
-    <form method="post">
-        <label for="NameEquipmentRequest">ชื่องานที่ซ่อม:</label>
-        <input type="text" name="NameEquipmentRequest" required>
+    <h2 class="eqreq_heading">แบบฟอร์มเบิกอุปกรณ์</h2>
+    <form method="post" class="eqreq_form">
+        <label for="NameEquipmentRequest" class="eqreq_label">ชื่องานที่ซ่อม:</label>
+        <input type="text" name="NameEquipmentRequest" class="eqreq_input" required>
 
-        <label for="Description">รายละเอียดงานซ่อม:</label>
-        <textarea name="Description" required></textarea>
+        <label for="Description" class="eqreq_label">รายละเอียดงานซ่อม:</label>
+        <textarea name="Description" class="eqreq_textarea" required></textarea>
 
-        <div id="equipment-container">
+        <div id="equipment-container" class="eqreq_equipment-container">
             <div class="equipment-item">
-                <label>อุปกรณ์ที่ต้องการเบิก:</label>
-                <select name="Equipment_id[]" required>
+                <label class="eqreq_label">อุปกรณ์ที่ต้องการเบิก:</label>
+                <select name="Equipment_id[]" class="eqreq_select" required>
                     <?php
-                    
                     $equipmentResult->data_seek(0);
                     while ($equipment = $equipmentResult->fetch_assoc()): ?>
                         <option value="<?php echo $equipment['id']; ?>"><?php echo $equipment['Name']; ?> (คงเหลือ: <?php echo $equipment['QuantityAvailable']; ?>)</option>
                     <?php endwhile; ?>
                 </select>
 
-                <label>จำนวนที่ต้องการเบิก:</label>
-                <input type="number" name="QuantityUsed[]" min="1" required>
+                <label class="eqreq_label">จำนวนที่ต้องการเบิก:</label>
+                <input type="number" name="QuantityUsed[]" min="1" class="eqreq_input-number" required>
             </div>
         </div>
 
-        <button type="button" onclick="addEquipmentField()">เพิ่มอุปกรณ์</button>
-        <button type="submit">บันทึกการเบิก</button>
+        <button type="button" onclick="addEquipmentField()" class="btn btn-secondary eqreq_btn-add">เพิ่มอุปกรณ์</button>
+        <button type="submit" class="btn btn-primary eqreq_btn-submit">บันทึกการเบิก</button>
     </form>
+
 </body>
+
 </html>
