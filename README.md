@@ -4,6 +4,7 @@
 ## Overview
 
 This application serves as a comprehensive solution for managing maintenance requests and equipment inventory. Designed for the Maintenance Class, it streamlines the process of reporting repairs, tracking status, and managing equipment requests efficiently.
+
 Made by team B in 954417 Class.
 
 ## Features
