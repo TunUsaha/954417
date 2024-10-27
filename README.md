@@ -1,5 +1,5 @@
 
-# Project 954417 Infosystem for Maintenance Class
+# Project 954417 Infosystem for Maintenance
 
 ## Overview
 
