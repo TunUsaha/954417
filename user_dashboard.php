@@ -71,7 +71,20 @@ include 'db_connect.php';
         <p>This is the user dashboard where you can submit repair requests.</p>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    
+    <div class="banner">
+        <div class="slider" style="--quantity: 10">
+            <div class="item" style="--position: 1"><img src="images/1.jpg" alt=""></div>
+            <div class="item" style="--position: 2"><img src="images/2.jpg" alt=""></div>
+            <div class="item" style="--position: 3"><img src="images/3.jpg" alt=""></div>
+            <div class="item" style="--position: 4"><img src="images/4.jpg" alt=""></div>
+            <div class="item" style="--position: 5"><img src="images/5.jpg" alt=""></div>
+            <div class="item" style="--position: 6"><img src="images/6.jpg" alt=""></div>
+            <div class="item" style="--position: 7"><img src="images/7.jpg" alt=""></div>
+            <div class="item" style="--position: 8"><img src="images/8.jpg" alt=""></div>
+            <div class="item" style="--position: 9"><img src="images/9.jpg" alt=""></div>
+            <div class="item" style="--position: 10"><img src="images/10.jpg" alt=""></div>
+        </div>
+    </div>
 </body>
 
 </html>
