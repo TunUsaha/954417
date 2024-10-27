@@ -47,7 +47,7 @@ $result = $stmt->get_result();
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="container_dprq mt-5s">
         <h2>รายละเอียดการแจ้งซ่อมทั้งหมด</h2>
 
         <?php if ($result->num_rows > 0): ?>
@@ -60,6 +60,7 @@ $result = $stmt->get_result();
                         <th>สถานะ</th>
                         <th>วันที่แจ้งซ่อม</th>
                         <th>User</th>
+                        <th class="text-center">ยืนยันการซ่อม</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -75,7 +76,7 @@ $result = $stmt->get_result();
                                     <?php echo $repair_request['User_id']; ?>
                                 </a>
                             </td>
-                            <td>
+                            <td class="text-center">
                                 <?php if ($repair_request['Status'] !== 'กำลังดำเนินการ'): ?>
                                     <form method="post">
                                         <input type="hidden" name="repair_request_id" value="<?php echo $repair_request['id']; ?>">
@@ -93,8 +94,8 @@ $result = $stmt->get_result();
             <p>ไม่มีข้อมูลการแจ้งซ่อมที่ต้องการ</p>
         <?php endif; ?>
 
-        <a href="technician_dashboard.php" class="btn btn-primary">กลับสู่แดชบอร์ด</a>
-        <a href="view_repair_status.php" class="btn btn-secondary">ไปยังหน้าดำเนินการ</a>
+        <a href="technician_dashboard.php" class="btn btn-primary_dprq">กลับสู่แดชบอร์ด</a>
+        <a href="view_repair_status.php" class="btn btn-secondary_dprq">ไปยังหน้าดำเนินการ</a>
     </div>
 </body>
 </html>

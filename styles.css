@@ -144,6 +144,7 @@ textarea.form-control {
     color: #6b7280;
     cursor: pointer;
     transition: color 0.2s ease;
+    margin-right: 5%;
 }
 
 .toggle-password:hover {
@@ -495,4 +496,63 @@ textarea.form-control {
             rotateY(calc( (var(--position) - 1) * (360 / var(--quantity)) * 1deg))
             translateZ(180px);
     }
+}
+
+/* Container Styles */
+.container_dprq {
+    padding: 20px;    /* Add padding for better spacing */
+    background-color: #f8f9fa; /* Light background for contrast */
+    border-radius: 8px; /* Rounded corners for modern look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Table Styles */
+.table {
+    width: 100%; /* Full width */
+    border-collapse: collapse; /* Remove gaps between cells */
+    margin-top: 20px; /* Space above the table */
+}
+
+/* Table Head */
+.table thead {
+    background-color: #8D4FD7; /* Header background color */
+    color: white; /* Header text color */
+}
+
+.table th, .table td {
+    padding: 12px; /* Padding for table cells */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #ddd; /* Bottom border for rows */
+}
+
+/* Zebra Striping */
+.table-striped tbody tr:nth-child(odd) {
+    background-color: #f2f2f2; /* Light grey for odd rows */
+}
+
+/* Button Styles */
+.btn {
+    border-radius: 4px; /* Rounded corners for buttons */
+    padding: 10px 15px; /* Padding for buttons */
+}
+
+.btn-primary_dprq {
+    background-color: #8D4FD7; /* Primary button color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+}
+
+.btn-secondary_dprq {
+    background-color: #6c757d; /* Secondary button color */
+    color: white; /* Text color */
+}
+
+/* Button Hover Effects */
+.btn-primary_dprq:hover, .btn-secondary_dprq:hover {
+    opacity: 0.8; /* Slightly transparent on hover */
+}
+
+/* Muted Text */
+.text-muted {
+    color: #6c757d; /* Muted text color */
 }

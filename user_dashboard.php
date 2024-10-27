@@ -81,7 +81,7 @@ include 'db_connect.php';
             <div class="item" style="--position: 7"><img src="images/7.jpg" alt=""></div>
             <div class="item" style="--position: 8"><img src="images/8.jpg" alt=""></div>
             <div class="item" style="--position: 9"><img src="images/9.jpg" alt=""></div>
-            <div class="item" style="--position: 10"><img src="images/dragon_10.jpg" alt=""></div>
+            <div class="item" style="--position: 10"><img src="images/10.jpg" alt=""></div>
         </div>
     </div>
 </body>
