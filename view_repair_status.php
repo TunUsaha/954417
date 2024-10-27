@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirm_repair'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repair Status</title>
-    <link rel="stylesheet" href="{{ asset('/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="styles.css"> 
 </head>
 
 <body>

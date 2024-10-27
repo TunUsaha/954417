@@ -108,7 +108,7 @@ $equipmentResult = $conn->query($equipmentQuery);
 <head>
     <meta charset="UTF-8">
     <title>Equipment Request</title>
-    <link rel="stylesheet" href="{{ asset('/style.css') }}" type="text/css">
+    <link rel="stylesheet" href="styles.css"> 
     <script>
         function addEquipmentField() {
             const equipmentContainer = document.getElementById('equipment-container');
