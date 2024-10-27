@@ -854,3 +854,79 @@ a:hover {
 .equipment-item {
     margin-bottom: 20px;
 }
+
+/* Container */
+.eqstk_container {
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+/* Heading */
+.eqstk_heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Table */
+.eqstk_table {
+    width: 100%;
+    margin-top: 15px;
+    font-size: 16px;
+}
+
+.eqstk_table th,
+.eqstk_table td {
+    padding: 10px;
+    text-align: center;
+}
+
+/* Inline Form in Table */
+.eqstk_form-inline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.eqstk_input {
+    width: 100%;
+    margin-right: 8px;
+}
+
+/* Buttons */
+.eqstk_btn {
+    background-color: #8D4FD7;
+    border-color: #8D4FD7;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.eqstk_btn:hover {
+    background-color: #5c2c8a;
+    border-color: #5c2c8a;
+}
+
+.eqstk_back-btn {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    font-weight: 600;
+    margin-top: 20px;
+    display: block;
+    width: 150px;
+    text-align: center;
+}
+
+.eqstk_back-btn:hover {
+    background-color: #565e64;
+    border-color: #565e64;
+}
+
+/* No Data Text */
+.eqstk_no-data {
+    font-size: 16px;
+    text-align: center;
+    color: #999;
+    margin-top: 15px;
+}
