@@ -29,6 +29,7 @@ if (isset($_GET['user_id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Info</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ asset('/style.css') }}" type="text/css">
 </head>
 <body>
     <div class="container mt-5">
@@ -39,6 +40,7 @@ if (isset($_GET['user_id'])) {
                 <div class="card-body">
                     <h5 class="card-title">ชื่อผู้ใช้: <?php echo $user['username']; ?></h5>
                     <p class="card-text">อีเมล: <?php echo $user['email']; ?></p>
+                    <p class="card-text">ที่อยู่: <?php echo $user['address']; ?></p>
                     <p class="card-text">วันที่ลงทะเบียน: <?php echo $user['created_at']; ?></p>
                     <a href="display_repair_request.php" class="btn btn-primary">กลับสู่รายการแจ้งซ่อม</a>
                 </div>

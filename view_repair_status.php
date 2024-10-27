@@ -9,7 +9,7 @@ if (!isset($_SESSION['id'])) {
 
 
 $query = "
-    SELECT rr.id, rr.Description, rr.Status, rr.RequestedDate, a.AcceptDate, a.id AS assignment_id, u.username
+    SELECT rr.id, rr.Description, rr.Status, rr.RequestedDate, a.AcceptDate, a.id AS assignment_id, u.username, u.id as userid
     FROM repairrequest rr
     JOIN assignment a ON rr.id = a.RepairRequest_id
     LEFT JOIN equipmentrequest er ON a.id = er.Assignment_id
@@ -24,70 +24,20 @@ $result = $stmt->get_result();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirm_repair'])) {
     $assignmentId = $_POST['assignment_id'];
-    header("Location: equipment_request_form.php?assignment_id=" . $assignmentId); 
+    header("Location: equipment_request_form.php?assignment_id=" . $assignmentId);
     exit();
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Repair Status</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 20px;
-        }
-
-        h2 {
-            color: #333;
-            text-align: center;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            background-color: #fff;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        th, td {
-            padding: 12px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #7D0B0B;
-            color: white;
-        }
-
-        tr:hover {
-            background-color: #f5f5f5;
-        }
-
-        form {
-            display: inline;
-        }
-
-        button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            padding: 8px 12px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('/style.css') }}" type="text/css">
 </head>
+
 <body>
     <div>
         <h2>สถานะการแจ้งซ่อม</h2>
@@ -112,7 +62,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirm_repair'])) {
                             <td><?php echo htmlspecialchars($repair['Status']); ?></td>
                             <td><?php echo htmlspecialchars($repair['RequestedDate']); ?></td>
                             <td><?php echo htmlspecialchars($repair['AcceptDate']); ?></td>
-                            <td><?php echo htmlspecialchars($repair['username']); ?></td>
+                            <td>
+                                <a href="user_info.php?user_id=<?php echo $repair['userid']; ?>">
+                                    <?php echo htmlspecialchars($repair['username']); ?>
+                                </a>
+                            </td>
                             <td>
                                 <form method="post">
                                     <input type="hidden" name="assignment_id" value="<?php echo htmlspecialchars($repair['assignment_id']); ?>">
@@ -130,4 +84,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirm_repair'])) {
         <a href="topic_repair.php" class="btn btn-secondary">ไปยังหน้าสรุปการซ่อมแซมทั้งหมด</a>
     </div>
 </body>
+
 </html>

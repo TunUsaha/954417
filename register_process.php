@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-   
+
     $check_email = "SELECT * FROM user WHERE email = ?";
     $stmt = $conn->prepare($check_email);
     $stmt->bind_param("s", $email);
@@ -33,17 +33,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit();
     }
 
-   
+
     if ($password !== $confirm_password) {
         $_SESSION['error'] = "รหัสผ่านไม่ตรงกัน";
         header("Location: register.php");
         exit();
     }
 
-   
+
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-   
+
     $sql = "INSERT INTO user (username, password, email, address) VALUES (?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssss", $username, $hashed_password, $email, $address);
