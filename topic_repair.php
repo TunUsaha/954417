@@ -21,21 +21,23 @@ JOIN
 JOIN 
     technician t ON a.Technician_id = t.id
 GROUP BY 
-    er.id"; 
+    er.id";
 
 $result = $conn->query($sql);
 ?>
 
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>รายการการซ่อมแซมอุปกรณ์</title>
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div class="container">
+    <div class="container_tprp">
         <?php if ($result->num_rows > 0): ?>
             <table>
                 <thead>
@@ -70,8 +72,10 @@ $result = $conn->query($sql);
         <?php else: ?>
             <p>ไม่พบข้อมูล.</p>
         <?php endif; ?>
+        <a href="technician_dashboard.php" class="btn btn-primary_dprq ">กลับสู่แดชบอร์ด</a>
+        <?php $conn->close(); ?>
     </div>
 
-    <?php $conn->close(); ?>
 </body>
+
 </html>

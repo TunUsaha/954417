@@ -59,6 +59,7 @@ $result = $stmt->get_result();
         <?php else: ?>
             <p>ไม่พบข้อมูลการแจ้งซ่อมของคุณ</p>
         <?php endif; ?>
+        <a href="user_dashboard.php" class="btn btn-primary_dprq ">กลับสู่แดชบอร์ด</a>
     </div>
 
     <?php $conn->close(); ?>

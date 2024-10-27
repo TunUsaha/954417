@@ -650,3 +650,59 @@ button[name="confirm_repair"]:hover {
     opacity: 0.85;
 }
 
+/* Container */
+.container_tprp {
+    margin-top: 2rem;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+thead {
+    background-color: #8D4FD7;
+    color: white;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Additional Links */
+a {
+    color: #8D4FD7;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #5c2c8a;
+}
+
+/* Empty Data Message */
+p {
+    color: #888;
+    font-style: italic;
+    font-size: 16px;
+    text-align: center;
+    margin-top: 20px;
+}
