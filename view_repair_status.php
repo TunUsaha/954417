@@ -39,12 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirm_repair'])) {
 </head>
 
 <body>
-    <div>
-        <h2>สถานะการแจ้งซ่อม</h2>
+    <div class="container_vrps">
+        <div class="vrps_h2">สถานะการแจ้งซ่อม</div>
         <?php if ($result->num_rows > 0): ?>
-            <table>
-                <thead>
-                    <tr>
+            <table class="vrps_table">
+                <thead class="vrps_thead">
+                    <tr class="vrps_tr">
                         <th>ID</th>
                         <th>คำอธิบาย</th>
                         <th>สถานะ</th>
@@ -54,20 +54,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirm_repair'])) {
                         <th>ยืนยันการซ่อม</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="vrps_tbody">
                     <?php while ($repair = $result->fetch_assoc()): ?>
-                        <tr>
-                            <td><?php echo htmlspecialchars($repair['id']); ?></td>
-                            <td><?php echo htmlspecialchars($repair['Description']); ?></td>
-                            <td><?php echo htmlspecialchars($repair['Status']); ?></td>
-                            <td><?php echo htmlspecialchars($repair['RequestedDate']); ?></td>
-                            <td><?php echo htmlspecialchars($repair['AcceptDate']); ?></td>
-                            <td>
+                        <tr class="vrps_tr">
+                            <td class="vrps_td"><?php echo htmlspecialchars($repair['id']); ?></td>
+                            <td class="vrps_td"><?php echo htmlspecialchars($repair['Description']); ?></td>
+                            <td class="vrps_td"><?php echo htmlspecialchars($repair['Status']); ?></td>
+                            <td class="vrps_td"><?php echo htmlspecialchars($repair['RequestedDate']); ?></td>
+                            <td class="vrps_td"><?php echo htmlspecialchars($repair['AcceptDate']); ?></td>
+                            <td class="vrps_td">
                                 <a href="user_info.php?user_id=<?php echo $repair['userid']; ?>">
                                     <?php echo htmlspecialchars($repair['username']); ?>
                                 </a>
                             </td>
-                            <td>
+                            <td class="vrps_td">
                                 <form method="post">
                                     <input type="hidden" name="assignment_id" value="<?php echo htmlspecialchars($repair['assignment_id']); ?>">
                                     <button type="submit" name="confirm_repair">ยืนยันการซ่อม</button>
@@ -80,8 +80,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['confirm_repair'])) {
         <?php else: ?>
             <p>ไม่มีข้อมูลการแจ้งซ่อม</p>
         <?php endif; ?>
-        <a href="technician_dashboard.php" class="btn btn-primary">กลับสู่แดชบอร์ด</a>
-        <a href="topic_repair.php" class="btn btn-secondary">ไปยังหน้าสรุปการซ่อมแซมทั้งหมด</a>
+        <a href="technician_dashboard.php" class="btn_vrps btn-primary_vrps">กลับสู่แดชบอร์ด</a>
+        <a href="topic_repair.php" class="btn_vrps btn-secondary_vrps">ไปยังหน้าสรุปการซ่อมแซมทั้งหมด</a>
     </div>
 </body>
 

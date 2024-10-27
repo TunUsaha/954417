@@ -556,3 +556,97 @@ textarea.form-control {
 .text-muted {
     color: #6c757d; /* Muted text color */
 }
+
+/* Container Styles */
+.container_vrps {
+    margin-top: 2rem;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+.vrps_h2 {
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Table Styles */
+.vrps_table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.vrps_thead {
+    background-color: #8D4FD7;
+    color: white;
+}
+
+.vrps_th {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.vrps_td{
+    padding: 12px 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.vprs_tbody .vrps_tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Button Styles */
+.btn_vrps {
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-top: 15px;
+}
+
+.btn-primary_vrps {
+    background-color: #8D4FD7;
+    color: white;
+    border: none;
+    margin-right: 10px;
+}
+
+.btn-secondary_vrps {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+}
+
+/* Confirmation Button */
+button[name="confirm_repair"] {
+    background-color: #28a745; /* Green for confirmation */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[name="confirm_repair"]:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+/* Hover Effects */
+.vrps_table .vrps_tr:hover {
+    background-color: #eaeaea;
+}
+
+.btn-primary_vrps:hover, .btn-secondary_vrps:hover, button[name="confirm_repair"]:hover {
+    opacity: 0.85;
+}
+
