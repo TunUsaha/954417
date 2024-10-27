@@ -10,33 +10,56 @@ include 'db_connect.php';
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Dashboard</title>
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="user_dashboard.php">User Dashboard</a>
-            <div class="collapse navbar-collapse">
-                <ul class="navbar-nav ms-auto">
+    <nav class="navbar navbar-expand-lg navbar-light User_dashboard">
+        <div class="container-fluid nav-wrapper">
+            <!-- Brand -->
+            <a class="navbar-brand brand-link" href="user_dashboard.php">
+                <span class="brand-text">User Dashboard</span>
+            </a>
+
+            <!-- Hamburger Button for Mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Navigation Items -->
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav ms-auto nav-list">
                     <?php if (isset($_SESSION['is_technician']) && $_SESSION['is_technician']): ?>
                         <li class="nav-item">
-                            <a class="nav-link" href="technician_dashboard.php">Technician Dashboard</a>
+                            <a class="nav-link nav-link-tech" href="technician_dashboard.php">
+                                <span class="nav-text">Technician Dashboard</span>
+                            </a>
                         </li>
                     <?php endif; ?>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="create_repair_request.php">แจ้งซ่อม</a>
+                        <a class="nav-link nav-link-repair" href="create_repair_request.php">
+                            <span class="nav-text">Report repair</span>
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="tracking_status.php">ติดตามสถานะ</a>
+                        <a class="nav-link nav-link-track" href="tracking_status.php">
+                            <span class="nav-text">Track status</span>
+                        </a>
                     </li>
+
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php">Logout</a>
+                        <a class="nav-link nav-link-logout" href="logout.php">
+                            <span class="nav-text">Logout</span>
+                        </a>
                     </li>
                 </ul>
             </div>
@@ -47,7 +70,8 @@ include 'db_connect.php';
         <h2>Welcome, User <?php echo $_SESSION['username']; ?></h2>
         <p>This is the user dashboard where you can submit repair requests.</p>
     </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
 </body>
+
 </html>

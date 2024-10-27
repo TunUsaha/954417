@@ -23,7 +23,7 @@
                 </div>
             </div>
 
-            <h2>Login to your account</h2>
+            <div class="login_h2">Login to your account</div>
             <p class="subtitle">Please enter your details to sign in</p>
 
             <form action="authenticate.php" method="POST" class="login-form">
@@ -86,7 +86,7 @@
         <script>
             Swal.fire({
                 icon: 'success',
-                title: 'สำเร็จ!',
+                title: 'success!',
                 text: '<?php echo $_SESSION['success']; ?>',
                 timer: 3000,
                 showConfirmButton: false
@@ -99,7 +99,7 @@
         <script>
             Swal.fire({
                 icon: 'error',
-                title: 'ข้อผิดพลาด!',
+                title: 'error',
                 text: '<?php echo $_SESSION['error']; ?>'
             });
         </script>

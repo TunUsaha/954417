@@ -13,7 +13,7 @@
 <div class="register">
     <div class="card">
         <div class="form-header">
-            <h2>Register</h2>
+            <div class="register_h2">Register</div>
             <p class="subtitle">Please fill in the information below to create a new account.</p>
         </div>
 

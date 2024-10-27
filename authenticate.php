@@ -43,13 +43,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             exit(); 
         } else {
 
-            $_SESSION['error'] = "รหัสผ่านไม่ถูกต้อง";
+            $_SESSION['error'] = "The password is incorrect.";
             header("Location: login.php");
             exit();
         }
     } else {
 
-        $_SESSION['error'] = "ชื่อผู้ใช้ไม่ถูกต้อง";
+        $_SESSION['error'] = "Invalid username";
         header("Location: login.php");
         exit();
     }

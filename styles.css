@@ -43,7 +43,15 @@ body {
     transform: scale(1.05);
 }
 
-h2 {
+.login_h2 {
+    color: #1a1a1a;
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}
+
+.register_h2 {
     color: #1a1a1a;
     font-size: 24px;
     font-weight: 600;
@@ -256,8 +264,12 @@ textarea.form-control {
         grid-template-columns: 1fr;
         gap: 16px;
     }
+
+    .login_h2 {
+        font-size: 22px;
+    }
     
-    h2 {
+    .register_h2 {
         font-size: 22px;
     }
     
@@ -271,5 +283,141 @@ textarea.form-control {
     
     textarea.form-control {
         width: 90%;
+    }
+}
+
+/* User Dashboard Base Styles */
+.User_dashboard {
+    font-family: "Prompt", "Kanit", sans-serif;
+    background-color: #f8f9fa;
+}
+
+/* Navbar Styles */
+.User_dashboard .navbar {
+    position: sticky; /* or fixed, depending on your design needs */
+    top: 0; /* Position at the top of the page */
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 10px rgba(141, 79, 215, 0.1);
+    padding: 1rem 0;
+    z-index: 1000; /* Ensure the navbar is on top of other elements */
+}
+
+.User_dashboard .navbar-brand {
+    color: #8D4FD7;
+    font-weight: 600;
+    font-size: 1.25rem;
+    transition: color 0.3s ease;
+}
+
+.User_dashboard .navbar-brand:hover {
+    color: #674392;
+}
+
+.User_dashboard .nav-link {
+    color: #674392;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    margin: 0 0.25rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.User_dashboard .nav-link:hover {
+    background-color: rgba(141, 79, 215, 0.1);
+    color: #8D4FD7;
+}
+
+.User_dashboard .nav-item:last-child .nav-link {
+    background-color: rgba(141, 79, 215, 0.1);
+    color: #8D4FD7;
+    margin-left: 1rem;
+}
+
+.User_dashboard .nav-item:last-child .nav-link:hover {
+    background-color: #8D4FD7;
+    color: white;
+}
+
+
+/* Container Styles */
+.User_dashboard .container {
+    padding: 2rem 1.5rem;
+}
+
+.User_dashboard h2 {
+    color: #674392;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.User_dashboard p {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Card Styles (if you add any) */
+.User_dashboard .card {
+    background: white;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(141, 79, 215, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.User_dashboard .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(141, 79, 215, 0.15);
+}
+
+/* Button Styles */
+.User_dashboard .btn {
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.User_dashboard .btn-primary {
+    background-color: #8D4FD7;
+    border-color: #8D4FD7;
+    color: white;
+}
+
+.User_dashboard .btn-primary:hover {
+    background-color: #674392;
+    border-color: #674392;
+    transform: translateY(-1px);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 991px) {
+    .User_dashboard .navbar-collapse {
+        background: white;
+        padding: 1rem;
+        border-radius: 8px;
+        margin-top: 1rem;
+        box-shadow: 0 4px 6px rgba(141, 79, 215, 0.1);
+    }
+
+    .User_dashboard .nav-item {
+        margin: 0.5rem 0;
+    }
+
+    .User_dashboard .nav-item:last-child .nav-link {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .User_dashboard .container {
+        padding: 1rem;
+    }
+
+    .User_dashboard h2 {
+        font-size: 1.5rem;
     }
 }
